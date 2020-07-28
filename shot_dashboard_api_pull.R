@@ -77,5 +77,7 @@ z <- do.call('rbind', y)
 colnames(z)[1:18] = json_resp$resultSets$headers[[1]]
 
 for(j in 4:18){
-  z[,j] <- colnames(z[,j])
+  z[,j] <- as.numeric(z[,j])
 }
+
+write.csv(z, 'team_shot_data.csv')
